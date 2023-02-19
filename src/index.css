@@ -1,3 +1,6 @@
 :root{
-  --color-main : blue ; 
+  --color-text-main : #D8D7DF ;
+  --color-back-main : #1C1C25 ; 
+  --color-back-main-hover : #2F2F3D ; 
+  --color-back-second : #3EB292 ;
 }

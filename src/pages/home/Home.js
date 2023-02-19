@@ -3,12 +3,12 @@ import './home.css' ;
 import {Map,Metroinfo,Manageaccounts,Sidebar,Timetable} from '../../components'
 const Home = ()=> {
     return (
-    <div>
-        <Map />
+    <div className="home">
+        <Sidebar />
+        {/* <Map />
         <Metroinfo/>
         <Manageaccounts />
-        <Sidebar />
-        <Timetable />
+        <Timetable /> */}
     </div>
     )
 }
