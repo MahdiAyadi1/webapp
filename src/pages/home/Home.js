@@ -1,13 +1,13 @@
 import React from "react";
 import './home.css' ;
-import {Map,Metroinfo,Manageaccounts,Sidebar,Timetable} from '../../components'
+import {LeafletMap,Metroinfo,Manageaccounts,Sidebar,Timetable} from '../../components'
 const Home = ()=> {
     return (
     <div className="home">
         <Sidebar />
-        {/* <Map />
-        <Metroinfo/>
-        <Manageaccounts />
+            <LeafletMap />
+            <Metroinfo/>
+        {/* <Manageaccounts />
         <Timetable /> */}
     </div>
     )

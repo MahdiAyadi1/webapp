@@ -3,7 +3,7 @@ import './metroinfo.css' ;
 
 const Metroinfo = ()=> {
     return (
-    <div>
+    <div className="metroinfo">
         Metroinfo
     </div>
     )

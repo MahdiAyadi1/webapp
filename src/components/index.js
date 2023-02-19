@@ -1,5 +1,5 @@
 export {default as Manageaccounts} from './manageaccounts/Manageaccounts'
-export {default as Map} from './map/Map' 
+export {default as LeafletMap} from './leafletmap/LeafletMap' 
 export {default as Metroinfo} from './metroinfo/Metroinfo' 
 export {default as Sidebar} from './sidebar/Sidebar' 
 export {default as Timetable} from './timetable/Timetable' 
