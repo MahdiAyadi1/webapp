@@ -5,8 +5,8 @@ const Home = ()=> {
     return (
     <div className="home">
         <Sidebar />
-            <LeafletMap />
-            <Metroinfo/>
+        <LeafletMap />
+        <Metroinfo/>
         {/* <Manageaccounts />
         <Timetable /> */}
     </div>

@@ -58,7 +58,7 @@ const LeafletMap = ()=> {
   }
 
   return (
-    <div id="map" className="map" style={{ width: '100%', height: '100vh' }}></div>
+    <div id="map" className="map"></div>
   );
 
 }
