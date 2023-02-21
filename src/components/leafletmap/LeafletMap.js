@@ -4,6 +4,7 @@ import './leafletmap.css' ;
 import { MapContainer, TileLayer, useMap,Marker,Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
+// import metropng from './metro.png'
 
 const LeafletMap = ()=> {
     const [map, setMap] = useState(null);
@@ -37,20 +38,11 @@ const LeafletMap = ()=> {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
     const accuracy = position.coords.accuracy;
-    var myIcon = L.icon({
-        iconUrl: 'metro.png',
-        iconSize: [36, 36],
-        iconAnchor: [36, 36],
-        popupAnchor: [-3, -76],
-        // shadowUrl: 'metro.png',
-        // shadowSize: [68, 95],
-        // shadowAnchor: [22, 94]
-    });
     if (marker) {
       marker.remove();
     }
 
-    const newMarker = L.marker([lat, long],{icon:myIcon}).addTo(map);
+    const newMarker = L.marker([lat, long]).addTo(map);
     newMarker.addTo(map)
     setMarker(newMarker);
     

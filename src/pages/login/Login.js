@@ -7,22 +7,23 @@ const Login = ()=> {
     <div className="signin">
         <form className="signin--form">
             <div className="signin--form--title">
-                Sign in
+                Admin Login
             </div>
             <div className="signin--form--subtext">
-                subtext  i have no idea what to write  
+                Log in to access real-time information on metro movement 
             </div>
-            <TextField className="signin--form--field">
+            <input className="signin--form--field" placeholder="Username"/>
+            <input className="signin--form--field" placeholder="Password" type="password"/>
 
-            </TextField>
-            <TextField className="signin--form--field">
+            
+            <div className="signin--form--remember">
+            <input type="checkbox"  /> 
 
-            </TextField>
-            <input type="checkbox" /> 
             <div>
             Remember me
             </div>
-            <button>Login</button>
+            </div>
+            <button className="signin--form--button">Login</button>
         </form>
     </div>
     )
