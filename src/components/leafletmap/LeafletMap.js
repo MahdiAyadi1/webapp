@@ -1,12 +1,17 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import './leafletmap.css' ;
-import { MapContainer, TileLayer, useMap,Marker,Popup } from 'react-leaflet'
+import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
-// import metropng from './metro.png'
 
 const LeafletMap = ()=> {
+  var myIcon = L.icon({
+    iconUrl: require("./metro.png"),
+    iconSize: [36, 36],
+    iconAnchor: [36, 36],
+    popupAnchor: [-3, -76]
+});
   return (
     <div className="map">
       <MapContainer 
@@ -21,7 +26,7 @@ const LeafletMap = ()=> {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[36.80962269649294, 10.157530321904984]}>
+        <Marker position={[36.80962269649294, 10.157530321904984]} icon={myIcon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
