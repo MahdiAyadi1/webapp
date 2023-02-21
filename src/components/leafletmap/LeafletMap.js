@@ -7,51 +7,27 @@ import L from 'leaflet' ;
 // import metropng from './metro.png'
 
 const LeafletMap = ()=> {
-    const [map, setMap] = useState(null);
-  const [marker, setMarker] = useState(null);
-
-  useEffect(() => {
-    const map = L.map('map').setView([36.80962269649294, 10.157530321904984], 12);
-    L.tileLayer('https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=NFoV9hj7fYKfYkIwipDm', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    setMap(map);
-    return () => {
-        if (map) {
-            map.remove();
-        }
-        }
-    }, []);
-
-  useEffect(() => {
-    if (map && !marker) {
-      if (!navigator.geolocation) {
-        console.log("Your browser doesn't support geolocation feature!")
-      } else {
-        navigator.geolocation.getCurrentPosition(getPosition);
-      }
-    }
-  }, [map, marker]);
-
-  function getPosition(position) {
-    console.log(position);
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
-    const accuracy = position.coords.accuracy;
-    if (marker) {
-      marker.remove();
-    }
-
-    const newMarker = L.marker([lat, long]).addTo(map);
-    newMarker.addTo(map)
-    setMarker(newMarker);
-    
-    console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy);
-  }
-
   return (
-    <div id="map" className="map"></div>
+    <div className="map">
+      <MapContainer 
+        style={{ width: "100%", height: "100vh" }}
+        zoom={13}
+        center={[36.80962269649294, 10.157530321904984]}
+        scrollWheelZoom={false}
+        fadeAnimation={true}
+        markerZoomAnimation={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[36.80962269649294, 10.157530321904984]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
-
 }
 export default LeafletMap
