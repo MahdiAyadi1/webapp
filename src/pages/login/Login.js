@@ -1,8 +1,12 @@
 import { TextField } from "@mui/material";
 import React from "react";
 import './login.css' ;
-
+import { useNavigate } from "react-router-dom";
 const Login = ()=> {
+    const navigate = useNavigate();
+    const handleClick=()=>{
+        navigate('/')
+    }
     return (
     <div className="signin">
         <form className="signin--form">
@@ -23,7 +27,7 @@ const Login = ()=> {
             Remember me
             </div>
             </div>
-            <button className="signin--form--button">Login</button>
+            <button className="signin--form--button" onClick={handleClick}>Login</button>
         </form>
     </div>
     )

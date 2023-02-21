@@ -8,22 +8,21 @@ export const SidebarElements = [
     {
         title : 'Map',
         icon : <MapIcon />,
-        link : ''
+        link : 'map'
     },
     {
         title : 'Manage Accounts',
         icon : <ManageAccountsIcon />,
-        link : ''
+        link : 'manageaccounts'
     },
     {
         title : 'Timetable',
         icon : <EventNoteIcon />,
-        link : ''
+        link : 'timetable'
     },
     {
         title : 'Log out',
         icon : <LogoutIcon/>,
-        link : ''
+        link : 'logout'
     },
-   
 ]

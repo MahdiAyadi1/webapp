@@ -1,3 +1,4 @@
 .metroinfo{
     width: 25%;
+    background-color: var(--color-back-main-hover);
 }

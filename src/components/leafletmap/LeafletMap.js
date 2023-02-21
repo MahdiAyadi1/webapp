@@ -10,7 +10,8 @@ const LeafletMap = ()=> {
     iconUrl: require("./metro.png"),
     iconSize: [36, 36],
     iconAnchor: [36, 36],
-    popupAnchor: [-3, -76]
+    popupAnchor: [-3, -76],
+
 });
   return (
     <div className="map">
@@ -18,7 +19,7 @@ const LeafletMap = ()=> {
         style={{ width: "100%", height: "100vh" }}
         zoom={13}
         center={[36.80962269649294, 10.157530321904984]}
-        scrollWheelZoom={false}
+        // scrollWheelZoom={false}
         fadeAnimation={true}
         markerZoomAnimation={true}
       >

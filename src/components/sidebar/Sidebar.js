@@ -1,7 +1,15 @@
 import React from "react";
 import './sidebar.css' ;
 import {SidebarElements} from './SidebarElements.js'
-const Sidebar = ()=> {
+import { useNavigate } from "react-router-dom";
+const Sidebar = (props)=> {
+    const navigate = useNavigate();
+    const handleClick = (value)=> {
+        props.setNav(value)
+    }
+    const handleLogOut =()=>{
+        navigate("/login")
+    }
     return (
     <div className="sidebar">
         <div className="sidebar--logo">
@@ -10,7 +18,7 @@ const Sidebar = ()=> {
         <ul className="sidebar--elements">
         {SidebarElements.map((val,key)=>{
             return(
-                <li key = {key} className="sidebar--elements--single">
+                <li key = {key} className="sidebar--elements--single" onClick={val.link=='logout'?handleLogOut:()=>{handleClick(val.link)}}>
                     <div className="sidebar--elements--single--icon">
                         {val.icon} 
                     </div>
@@ -18,7 +26,6 @@ const Sidebar = ()=> {
                         {val.title}
                     </div>
                 </li>
-                
                 )
             })}
         </ul>
