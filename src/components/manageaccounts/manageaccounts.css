@@ -1,0 +1,8 @@
+.manageaccounts{
+    background-color: var(--color-back-main-hover);
+    width: 100%;
+    padding: 10px;
+}
+.manageaccounts--table{
+    color : red ;
+}
