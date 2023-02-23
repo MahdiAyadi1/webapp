@@ -3,7 +3,7 @@ import './timetable.css' ;
 
 const  Timetable= ()=> {
     return (
-    <div>
+    <div className="timetable">
         Timetable
     </div>
     )
