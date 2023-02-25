@@ -40,7 +40,7 @@ var stationIcon = L.icon({
         </Marker>
         {lineone.map((val) =>{ 
           return (
-            <Marker position={val.coordinates} icon={stationIcon}>
+            <Marker key={val.name} position={val.coordinates} icon={stationIcon}>
               <Popup>
                 Station {val.name} <br/>{val.ligne}
               </Popup>

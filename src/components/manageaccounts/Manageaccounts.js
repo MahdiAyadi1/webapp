@@ -10,12 +10,15 @@ import Paper from '@mui/material/Paper';
 import { maxHeight } from "@mui/system";
 import TableViewIcon from '@mui/icons-material/TableView';
 import EditIcon from '@mui/icons-material/Edit';
+import Editaccount from "../editaccount/Editaccount";
+import { useState } from "react";
+import { Createaccount } from "..";
 
 function createData(
-    id,
-    name,
-    lastname,
-    mail,
+  id,
+  name,
+  lastname,
+  mail,
   ) {
     return { id, name, lastname, mail};
   }
@@ -28,13 +31,16 @@ function createData(
     createData(5, "Ahmed","Ahmed","ahmed@mail.com"),
     createData(6, "Ahmed","Ahmed","ahmed@mail.com")
   ];
-
-const Manageaccounts = ()=> {
+  const Manageaccounts = (props)=> {
+    const [edit , setEdit]= useState(false)
+    const toggleEdit = ()=>{
+      setEdit(true)
+    }
     return (
-        <div className="manageaccounts">
-
+      <div className="manageaccounts">
+          {edit && <Editaccount  toggleEdit={toggleEdit} edit setEdit={setEdit} /> }
         <TableContainer component={Paper} sx={{color:'blue'}}>
-          <Table sx={{ minWidth: 650}} aria-label="simple table" stickyHeader>
+          <Table sx={{ minWidth: 650}} aria-label="simple table" >
             <TableHead>
               <TableRow>
                 <TableCell>Id</TableCell>
@@ -47,9 +53,9 @@ const Manageaccounts = ()=> {
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                  <TableRow
-                  key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                <TableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     {row.id}
@@ -57,14 +63,15 @@ const Manageaccounts = ()=> {
                   <TableCell align="center" >{row.name}</TableCell>
                   <TableCell align="center" >{row.lastname}</TableCell>
                   <TableCell align="center" >{row.mail}</TableCell>
-                  <TableCell align="center" ><TableViewIcon/></TableCell>
-                  <TableCell align="center" ><EditIcon/></TableCell>
+                  <TableCell align="center" ><TableViewIcon /></TableCell>
+                  <TableCell align="center" ><EditIcon onClick={toggleEdit} /></TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
+        <Createaccount setCreate />
               </div>
       );
-}
-export default Manageaccounts
+    }
+    export default Manageaccounts
