@@ -1,4 +1,9 @@
 .metroinfo{
-    width: auto;
+    width: 250px;
     background-color: var(--color-back-main-hover);
+    color: var(--color-text-main);
+}
+.metroinfo--items--signle{
+    display: flex;
+    flex-direction: column;
 }

@@ -23,14 +23,17 @@ function createData(
   const rows = [
     createData(1,"Mahdi", "Ayadi", "mahdi@mail.com"),
     createData(2, "Mohamed","Chaabouni","mohamed@mail.com"),
-    createData(3, "Ahmed","Ahmed","ahmed@mail.com")
+    createData(3, "Ahmed","Ahmed","ahmed@mail.com"),
+    createData(4, "Ahmed","Ahmed","ahmed@mail.com"),
+    createData(5, "Ahmed","Ahmed","ahmed@mail.com"),
+    createData(6, "Ahmed","Ahmed","ahmed@mail.com")
   ];
 
 const Manageaccounts = ()=> {
     return (
         <div className="manageaccounts">
 
-        <TableContainer component={Paper} sx={{maxHeight:200}}>
+        <TableContainer component={Paper} sx={{color:'blue'}}>
           <Table sx={{ minWidth: 650}} aria-label="simple table" stickyHeader>
             <TableHead>
               <TableRow>
