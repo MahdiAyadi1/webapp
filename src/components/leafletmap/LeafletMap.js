@@ -4,6 +4,7 @@ import './leafletmap.css' ;
 import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
+import { lineone } from "./lineone";
 
 const LeafletMap = ()=> {
   var myIcon = L.icon({
@@ -11,7 +12,12 @@ const LeafletMap = ()=> {
     iconSize: [36, 36],
     iconAnchor: [36, 36],
     popupAnchor: [-3, -76],
-
+});
+var stationIcon = L.icon({
+  iconUrl: require("./station.png"),
+  iconSize: [36, 36],
+  iconAnchor: [36, 36],
+  popupAnchor: [-3, -76],
 });
   return (
     <div className="map">
@@ -29,9 +35,19 @@ const LeafletMap = ()=> {
         />
         <Marker position={[36.80962269649294, 10.157530321904984]} icon={myIcon}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            Metro 401
           </Popup>
         </Marker>
+        {lineone.map((val) =>{ 
+          return (
+            <Marker key={val.name} position={val.coordinates} icon={stationIcon}>
+              <Popup>
+                Station {val.name} <br/>{val.ligne}
+              </Popup>
+            </Marker>
+          )})
+        }         
+
       </MapContainer>
     </div>
   );
