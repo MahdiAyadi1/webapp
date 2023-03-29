@@ -103,6 +103,15 @@ var station5Icon = L.icon({
                 <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
               </Marker>
             )
+            case("Ligne 5"):
+            return (
+              <Marker key={val.name} position={val.coordinates} icon={station5Icon}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+              </Marker>
+            )
           }
         })
         }         
