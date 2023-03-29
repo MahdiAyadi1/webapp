@@ -5,6 +5,9 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SubwayIcon from '@mui/icons-material/Subway';
 import SummarizeIcon from '@mui/icons-material/Summarize';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+
 export const SidebarElements = [
     {
         title : 'Map',
@@ -28,7 +31,9 @@ export const SidebarElements = [
     },
     {
         title : 'Declarations',
-        icon : <SummarizeIcon />,
+        icon : <Badge badgeContent={4} color="primary">
+                <MailIcon  />
+                </Badge>,
         link : 'declarations'
     },
     {

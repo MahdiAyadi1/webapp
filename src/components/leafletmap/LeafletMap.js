@@ -1,10 +1,11 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import './leafletmap.css' ;
-import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
+import { MapContainer, TileLayer,Marker,Popup,Tooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
 import { lineone } from "./lineone";
+import {StationIcon} from './stationIcon'
 
 const LeafletMap = ()=> {
   var myIcon = L.icon({
@@ -13,8 +14,32 @@ const LeafletMap = ()=> {
     iconAnchor: [36, 36],
     popupAnchor: [-3, -76],
 });
-var stationIcon = L.icon({
-  iconUrl: require("./station.png"),
+var station1Icon = L.icon({
+  iconUrl: require("./station1.png"),
+  iconSize: [36, 36],
+  iconAnchor: [36, 36],
+  popupAnchor: [-3, -76],
+});
+var station2Icon = L.icon({
+  iconUrl: require("./station2.png"),
+  iconSize: [36, 36],
+  iconAnchor: [36, 36],
+  popupAnchor: [-3, -76],
+});
+var station3Icon = L.icon({
+  iconUrl: require("./station3.png"),
+  iconSize: [36, 36],
+  iconAnchor: [36, 36],
+  popupAnchor: [-3, -76],
+});
+var station4Icon = L.icon({
+  iconUrl: require("./station4.png"),
+  iconSize: [36, 36],
+  iconAnchor: [36, 36],
+  popupAnchor: [-3, -76],
+});
+var station5Icon = L.icon({
+  iconUrl: require("./station5.png"),
   iconSize: [36, 36],
   iconAnchor: [36, 36],
   popupAnchor: [-3, -76],
@@ -37,15 +62,49 @@ var stationIcon = L.icon({
           <Popup>
             Metro 401
           </Popup>
+          <Tooltip>Metro 401</Tooltip>
         </Marker>
         {lineone.map((val) =>{ 
-          return (
-            <Marker key={val.name} position={val.coordinates} icon={stationIcon}>
-              <Popup>
-                Station {val.name} <br/>{val.ligne}
-              </Popup>
-            </Marker>
-          )})
+          switch (val.ligne){
+            case("Ligne 1"):
+            return (
+              // <Marker key={val.name} position={val.coordinates} icon={<StationIcon url="./station1.png"/>}>
+              <Marker key={val.name} position={val.coordinates} icon={station1Icon}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+              </Marker>
+            )
+            case("Ligne 2"):
+            return (
+              <Marker key={val.name} position={val.coordinates} icon={station2Icon}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+              </Marker>
+            )
+            case("Ligne 3"):
+            return (
+              <Marker key={val.name} position={val.coordinates} icon={station3Icon}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+              </Marker>
+            )
+            case("Ligne 4"):
+            return (
+              <Marker key={val.name} position={val.coordinates} icon={station4Icon}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+              </Marker>
+            )
+          }
+        })
         }         
 
       </MapContainer>
