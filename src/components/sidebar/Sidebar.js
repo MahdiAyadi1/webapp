@@ -1,13 +1,16 @@
 import React from "react";
 import './sidebar.css' ;
 import {SidebarElements} from './SidebarElements.js'
+import {signOut} from "firebase/auth";
+import { auth } from "../../firebase-config";
 import { useNavigate } from "react-router-dom";
 const Sidebar = (props)=> {
     const navigate = useNavigate();
     const handleClick = (value)=> {
         props.setNav(value)
     }
-    const handleLogOut =()=>{
+    const handleLogOut = async()=>{
+        await signOut(auth);
         navigate("/login")
     }
     return (
