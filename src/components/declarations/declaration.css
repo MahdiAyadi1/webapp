@@ -1,0 +1,7 @@
+.declaration{
+    background-color: var(--color-back-main-hover);
+    width: 100%;
+}
+.declaration--list--item{
+    color: blue;
+}
