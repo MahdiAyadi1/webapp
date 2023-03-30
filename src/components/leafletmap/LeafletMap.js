@@ -37,7 +37,7 @@ console.log(props.filtre)
         {lineone.map((val) =>{ 
             return (
               props.filtre.includes(val.ligne.at(-1)) &&
-               <Marker key={val.name} position={val.coordinates} icon={L.icon({
+               <Marker key={val.id} position={val.coordinates} icon={L.icon({
                 iconUrl: require(`./station${val.ligne.at(-1)}.png`),
                 iconSize: [36, 36],
                 iconAnchor: [36, 36],
