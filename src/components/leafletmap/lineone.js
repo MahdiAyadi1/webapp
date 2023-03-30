@@ -807,6 +807,249 @@ export const lineone = [
               ],
               "delegation": "Ettadhamen",
               "correspondences": []
+            },
+            //=======================================Ligne6===========================================
+            {
+              "id": 69,
+              "ligne": "Ligne 6",
+              "num": 1,
+              "name": "Tunis Marine",
+              "coordinates": [
+                36.8,
+                10.193889
+              ],
+              "delegation": "Bab el Bhar",
+              "correspondences": [
+                "Ligne 3",
+                "TGM"
+              ]
+            },
+            
+            {
+              "id": 70,
+              "ligne": "Ligne 6",
+              "num": 2,
+              "name": "Farhat-Hached",
+              "coordinates": [
+                36.798889,
+                10.186111
+              ],
+              "delegation": "Bab el Bhar",
+              "correspondences": [
+                "Ligne 3"
+              ]
+            },
+            
+            {
+              "id": 71,
+              "ligne": "Ligne 6",
+              "num": 3,
+              "name": "Place de Barcelone",
+              "coordinates": [
+                36.796111,
+                10.180556
+              ],
+              "delegation": "Bab el Bhar",
+              "correspondences": [
+                "Ligne 1",
+                "Ligne 3",
+                "Ligne 4",
+                "Ligne 5",
+                "Gare de Tunis"
+              ]
+            },
+            
+            {
+              "id": 72,
+              "ligne": "Ligne 6",
+              "num": 4,
+              "name": "Bab Alioua",
+              "coordinates": [
+                36.785833,
+                10.179722
+              ],
+              "delegation": "Sidi El Béchir",
+              "correspondences": [
+                "Ligne 1"
+              ]
+            },
+            
+            {
+              "id": 73,
+              "ligne": "Ligne 6",
+              "num": 5,
+              "name": "Mohamed-Manachou",
+              "coordinates": [
+                36.782222,
+                10.179722
+              ],
+              "delegation": "Sidi El Béchir",
+              "correspondences": [
+                "Ligne 1"
+              ]
+            },
+            
+            {
+              "id": 74,
+              "ligne": "Ligne 6",
+              "num": 6,
+              "name": "13-Août",
+              "coordinates": [
+                36.775,
+                10.179167
+              ],
+              "delegation": "Sidi El Béchir",
+              "correspondences": [
+                "Ligne 1"
+              ]
+            },
+            
+            {
+              "id": 75,
+              "ligne": "Ligne 6",
+              "num": 7,
+              "name": "Mohamed-Ali",
+              "coordinates": [
+                36.767778,
+                10.183889
+              ],
+              "delegation": "El Ouardia",
+              "correspondences": [
+                "Ligne 1"
+              ]
+            },
+            
+            {
+              "id": 76,
+              "ligne": "Ligne 6",
+              "num": 8,
+              "name": "Tahar-Haddad",
+              "coordinates": [
+                36.761944,
+                10.186944
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 77,
+              "ligne": "Ligne 6",
+              "num": 9,
+              "name": "Ghazeli",
+              "coordinates": [
+                36.754722,
+                10.187778
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 78,
+              "ligne": "Ligne 6",
+              "num": 10,
+              "name": "Cité municipale",
+              "coordinates": [
+                36.748333,
+                10.188889
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 79,
+              "ligne": "Ligne 6",
+              "num": 11,
+              "name": "Ennesri",
+              "coordinates": [
+                36.745,
+                10.190278
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 80,
+              "ligne": "Ligne 6",
+              "num": 12,
+              "name": "El Montazah",
+              "coordinates": [
+                36.742778,
+                10.193611
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 81,
+              "ligne": "Ligne 6",
+              "num": 13,
+              "name": "El Mourouj 2",
+              "coordinates": [
+                36.742222,
+                10.198889
+              ],
+              "delegation": "El Kabaria",
+              "correspondences": []
+            },
+            {
+              "id": 82,
+              "ligne": "Ligne 6",
+              "num": 14,
+              "name": "El Mourouj 1",
+              "coordinates": [
+                36.738333,
+                10.206667
+              ],
+              "delegation": "El Mourouj",
+              "correspondences": []
+            },
+            {
+              "id": 83,
+              "ligne": "Ligne 6",
+              "num": 15,
+              "name": "Environnement",
+              "coordinates": [
+                36.733056,
+                10.210278
+              ],
+              "delegation": "El Mourouj",
+              "correspondences": []
+            },
+            {
+              "id": 84,
+              "ligne": "Ligne 6",
+              "num": 16,
+              "name": "El Mourouj 3",
+              "coordinates": [
+                36.728611,
+                10.210833
+              ],
+              "delegation": "El Mourouj",
+              "correspondences": []
+            },
+            {
+              "id": 85,
+              "ligne": "Ligne 6",
+              "num": 17,
+              "name": "Martyrs",
+              "coordinates": [
+                36.723611,
+                10.2125
+              ],
+              "delegation": "El Mourouj",
+              "correspondences": []
+            },
+            {
+              "id": 86,
+              "ligne": "Ligne 6",
+              "num": 18,
+              "name": "El Mourouj 4",
+              "coordinates": [
+                36.719722,
+                10.216389
+              ],
+              "delegation": "El Mourouj",
+              "correspondences": [],
             }
-          
+             
 ]

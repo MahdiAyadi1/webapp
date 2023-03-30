@@ -42,7 +42,12 @@ console.log(props.filtre)
                 iconSize: [36, 36],
                 iconAnchor: [36, 36],
                 popupAnchor: [-3, -76],
-              })}/>
+              })}>
+                <Popup>
+                  Station {val.name} <br/>{val.ligne}
+                </Popup>
+                <Tooltip>Station {val.name} <br/>{val.ligne}</Tooltip>
+                </Marker>
               )
         })
         }         
