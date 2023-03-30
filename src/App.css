@@ -11,4 +11,12 @@ body{
   color : var(--color-text-main);
   font-weight: 400;
   font-size: 60px;
+  padding: 20px;
+}
+.centerElements{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
