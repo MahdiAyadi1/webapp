@@ -5,10 +5,9 @@ import { MapContainer, TileLayer,Marker,Popup,Tooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
 import { lineone } from "./lineone";
-import {StationIcon} from './stationIcon'
 
-const LeafletMap = ()=> {
-
+const LeafletMap = (props)=> {
+console.log(props.filtre)
   var myIcon = L.icon({
     iconUrl: require("./metro.png"),
     iconSize: [36, 36],
@@ -37,6 +36,7 @@ const LeafletMap = ()=> {
         </Marker>
         {lineone.map((val) =>{ 
             return (
+              props.filtre.includes(val.ligne.at(-1)) &&
                <Marker key={val.name} position={val.coordinates} icon={L.icon({
                 iconUrl: require(`./station${val.ligne.at(-1)}.png`),
                 iconSize: [36, 36],
