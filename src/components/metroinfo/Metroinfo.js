@@ -4,6 +4,13 @@ import Box from "@mui/material/Box";
 import { Tab } from "@mui/material";
 import RoomIcon from "@mui/icons-material/Room";
 import Tooltip from "@mui/material/Tooltip";
+import station1Img from '../leafletmap/station1.png'
+import station2Img from '../leafletmap/station2.png'
+import station3Img from '../leafletmap/station3.png'
+import station4Img from '../leafletmap/station4.png'
+import station5Img from '../leafletmap/station5.png'
+import station6Img from '../leafletmap/station6.png'
+import { width } from "@mui/system";
 
 const Metroinfo = (props) => {
   const [value, setValue] = useState("1");
@@ -55,6 +62,7 @@ const Metroinfo = (props) => {
               onChange={handleLineChange}
             />
             Line 1
+            <img src={station1Img} style={{width: 20,marginLeft: 13}}/>
           </div>
           <div>
             <input
@@ -64,6 +72,7 @@ const Metroinfo = (props) => {
               onChange={handleLineChange}
             />
             Line 2
+            <img src={station2Img} style={{width: 20,marginLeft: 13}}/>
           </div>
           <div>
             <input
@@ -73,6 +82,7 @@ const Metroinfo = (props) => {
               onChange={handleLineChange}
             />
             Line 3
+            <img src={station3Img} style={{width: 20,marginLeft: 13}}/>
           </div>
           <div>
             <input
@@ -82,6 +92,7 @@ const Metroinfo = (props) => {
               onChange={handleLineChange}
             />
             Line 4
+            <img src={station4Img} style={{width: 20,marginLeft: 13}}/>
           </div>
           <div>
             <input
@@ -90,7 +101,8 @@ const Metroinfo = (props) => {
               checked={props.filtre.includes("5")}
               onChange={handleLineChange}
             />
-            Line 5
+            Line 5 
+            <img src={station5Img} style={{width: 20,marginLeft: 13}}/>
           </div>
           <div>
             <input
@@ -100,6 +112,7 @@ const Metroinfo = (props) => {
               onChange={handleLineChange}
             />
             Line 6
+            <img src={station6Img} style={{width: 20,marginLeft: 13}}/>
           </div>
         </TabPanel>
       </TabContext>

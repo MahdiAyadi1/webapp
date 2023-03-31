@@ -1,19 +1,43 @@
 import React  from 'react'
 import './editaccount.css'
 import EditIcon from '@mui/icons-material/Edit';
-import { useState } from 'react';
+import { useState,useEffect,useRef } from 'react';
 
 const Editaccount = (props) => {
   
-  const handleClick = (e)=>{
-    e.preventDefault()
+  const handleClick = (
+    // e
+  )=>{
+    // e.preventDefault()
     props.setEdit(false)
   }
+
+
+  const editRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", (event) =>
+      handleClickOutside(event)
+    );
+
+    return () => {
+      document.removeEventListener("click", (event) =>
+        handleClickOutside(event)
+      );
+    };
+  }, [handleClick]);
+
+  const handleClickOutside = (event) => {
+    if (editRef.current && !editRef.current.contains(event.target)&&
+    !event.target.matches(".editIcon")) {
+      console.log("Click detected outside editaccount div");
+      handleClick();
+    }
+  };
+
   return (
     <>
-    {true &&
-
-    <div className='editaccount'>
+    <div className='editaccount' ref={editRef}>
       <form className="signin--form" onSubmit={handleClick}>
             <div className="signin--form--title">
                 Edit {props.name}'s Account
@@ -24,7 +48,6 @@ const Editaccount = (props) => {
             <button className="signin--form--button" >Update</button>
         </form>
     </div>
-    }
     </>
     )
 }
