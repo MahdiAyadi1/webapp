@@ -28,8 +28,7 @@ const Editaccount = (props) => {
   }, [handleClick]);
 
   const handleClickOutside = (event) => {
-    if (editRef.current && !editRef.current.contains(event.target)&&
-    !event.target.matches(".editIcon")) {
+    if (editRef.current && !editRef.current.contains(event.target) && !event.target.matches(".editIcon")) {
       console.log("Click detected outside editaccount div");
       handleClick();
     }
