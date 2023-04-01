@@ -41,10 +41,11 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
+            <TableCell align="center">CIN</TableCell>
               <TableCell align="center">Name</TableCell>
               <TableCell align="center">Last Name</TableCell>
               <TableCell align="center">Email</TableCell>
+              <TableCell align="center">Password</TableCell>
               <TableCell align="center">TimeTable</TableCell>
               <TableCell align="center">Delete</TableCell>
             </TableRow>
@@ -55,12 +56,11 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  {row.id}
-                </TableCell>
+                <TableCell align="center">{row.cin}</TableCell>
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.lastName}</TableCell>
                 <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">{row.password}</TableCell>
                 <TableCell align="center">
                   <TableViewIcon className="TableViewIcon"/>
                 </TableCell>

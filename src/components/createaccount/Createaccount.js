@@ -72,6 +72,12 @@ const Createaccount = (props) => {
             <div className="signin--form--title">Create Account</div>
             <input
               onChange={handleChange}
+              name="cin"
+              className="signin--form--field"
+              placeholder="CIN"
+            />
+            <input
+              onChange={handleChange}
               name="name"
               className="signin--form--field"
               placeholder="Name"
@@ -87,6 +93,12 @@ const Createaccount = (props) => {
               name="email"
               className="signin--form--field"
               placeholder="Email"
+            />
+            <input
+              onChange={handleChange}
+              name="password"
+              className="signin--form--field"
+              placeholder="Password"
             />
             <button className="signin--form--button" disabled={!buttonstatus}>
               Create
