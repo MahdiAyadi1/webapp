@@ -11,6 +11,7 @@ const Createaccount = (props) => {
   const [FormCreate, setFormCreate] = useState({});
   const [create, setCreate] = useState(false);
   const [buttonstatus, setbuttonstatus] = useState(true);
+  const [bool, setbool] = useState(true);
 
   const handleClick = () => {
     setCreate(!create);
@@ -45,8 +46,9 @@ const Createaccount = (props) => {
       console.log(FormCreate);
       e.preventDefault();
       setbuttonstatus(false);
-      const docRef = doc(db, "chauffeur", FormCreate.name);
+      const docRef = doc(db, "chauffeur", FormCreate.cin);
       await setDoc(docRef, FormCreate);
+      props.setbool((old)=>{return !old})
     } catch (error) {
       alert(error.message);
     }

@@ -49,6 +49,7 @@ const Createmetro = (props) => {
       setbuttonstatus(false);
       const docRef = doc(db, "metro", FormCreate.id);
       await setDoc(docRef, FormCreate);
+      props.setbool((old)=>{return !old})
     } catch (error) {
       alert(error.message);
     }

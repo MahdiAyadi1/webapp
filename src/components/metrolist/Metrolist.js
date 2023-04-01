@@ -16,6 +16,7 @@ import { Createmetro } from "..";
 const Metrolist = () => {
   const [metroList, setmetroList] = useState([]);
   const metroCollectionRef = collection(db, "metro");
+  const [bool, setbool] = useState(true);
   
   useEffect(() => {
     const getmetros = async () => {
@@ -23,7 +24,12 @@ const Metrolist = () => {
       setmetroList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getmetros();
-  }, []);
+  }, [bool]);
+  const deleteMetro = async (id) => {
+    const postDoc = doc(db, "metro", id);
+    await deleteDoc(postDoc);
+    setbool((old)=>{return !old})
+  };
   return (
     <div className="manageaccounts">
       <div className="page--title"> Metro List</div>
@@ -52,13 +58,15 @@ const Metrolist = () => {
                   <TableCell align="center" >{row.madein}</TableCell>
                   <TableCell align="center" >{row.capacity}</TableCell>
                   <TableCell align="center" >{row.line}</TableCell>
-                  <TableCell align="center" ><DeleteIcon className="editIcon"/></TableCell>
+                  <TableCell align="center"><DeleteIcon className="editIcon" onClick={() => {
+                  deleteMetro(row.id);
+                }}/></TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-        <Createmetro />
+        <Createmetro setbool={setbool}/>
               </div>
   )
 }

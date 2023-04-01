@@ -21,7 +21,8 @@ import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 const Manageaccounts = (props) => {
   const [edit, setEdit] = useState(false);
   const [chauffeurList, setchauffeurList] = useState([]);
-const chauffeurCollectionRef = collection(db, "chauffeur");
+  const [bool, setbool] = useState(true);
+  const chauffeurCollectionRef = collection(db, "chauffeur");
   
   useEffect(() => {
     const getchauffeurs = async () => {
@@ -29,7 +30,13 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
       setchauffeurList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getchauffeurs();
-  }, []);
+  }, [bool]);
+
+  const deleteChauffeur = async (id) => {
+    const postDoc = doc(db, "chauffeur", id);
+    await deleteDoc(postDoc);
+    setbool((old)=>{return !old})
+  };
   const toggleEdit = () => {
     setEdit(true);
   };
@@ -53,7 +60,7 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
           <TableBody>
             {chauffeurList.map((row) => (
               <TableRow
-                key={row.id}
+                key={row.cin}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">{row.cin}</TableCell>
@@ -64,15 +71,19 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
                 <TableCell align="center">
                   <TableViewIcon className="TableViewIcon"/>
                 </TableCell>
-                <TableCell align="center" onClick={toggleEdit}>
-                  <PersonRemoveIcon  className="editIcon"/>
+                <TableCell align="center"
+                //  onClick={toggleEdit}
+                 >
+                  <PersonRemoveIcon  className="editIcon" onClick={() => {
+                  deleteChauffeur(row.cin);
+                  }}/>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Createaccount setCreate />
+      <Createaccount setCreate setbool={setbool}/>
     </div>
   );
 };
