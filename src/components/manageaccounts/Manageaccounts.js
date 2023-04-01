@@ -11,29 +11,30 @@ import { maxHeight } from "@mui/system";
 import TableViewIcon from "@mui/icons-material/TableView";
 import EditIcon from "@mui/icons-material/Edit";
 import Editaccount from "../editaccount/Editaccount";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Createaccount } from "..";
+import { db } from "../../firebase-config";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 
-function createData(id, name, lastname, mail) {
-  return { id, name, lastname, mail };
-}
 
-const rows = [
-  createData(1, "Mahdi", "Ayadi", "mahdi@mail.com"),
-  createData(2, "Mohamed", "Chaabouni", "mohamed@mail.com"),
-  createData(3, "Ahmed", "Ahmed", "ahmed@mail.com"),
-  createData(4, "Ahmed", "Ahmed", "ahmed@mail.com"),
-  createData(5, "Ahmed", "Ahmed", "ahmed@mail.com"),
-  createData(6, "Ahmed", "Ahmed", "ahmed@mail.com"),
-];
 const Manageaccounts = (props) => {
   const [edit, setEdit] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [chauffeurList, setchauffeurList] = useState([]);
+const chauffeurCollectionRef = collection(db, "chauffeur");
+  
+  useEffect(() => {
+    const getchauffeurs = async () => {
+      const data = await getDocs(chauffeurCollectionRef);
+      setchauffeurList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getchauffeurs();
+  }, []);
   const toggleEdit = () => {
     setEdit(true);
   };
   return (
     <div className="manageaccounts">
+      <div className="page--title"> Chauffeurs List</div>
       {edit && <Editaccount toggleEdit={toggleEdit} edit setEdit={setEdit} />}
       <TableContainer component={Paper} sx={{ color: "blue" }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -48,7 +49,7 @@ const Manageaccounts = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {chauffeurList.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -57,16 +58,13 @@ const Manageaccounts = (props) => {
                   {row.id}
                 </TableCell>
                 <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.lastname}</TableCell>
-                <TableCell align="center">{row.mail}</TableCell>
+                <TableCell align="center">{row.lastName}</TableCell>
+                <TableCell align="center">{row.email}</TableCell>
                 <TableCell align="center">
-                  <TableViewIcon />
+                  <TableViewIcon className="TableViewIcon"/>
                 </TableCell>
-                <TableCell align="center">
-                  <EditIcon onClick={toggleEdit} className="editIcon"
-                  style={{ cursor: isHovered ? "pointer" : "default" }}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}/>
+                <TableCell align="center" onClick={toggleEdit}>
+                  <EditIcon  className="editIcon"/>
                 </TableCell>
               </TableRow>
             ))}
