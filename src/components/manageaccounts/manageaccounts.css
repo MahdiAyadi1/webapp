@@ -17,3 +17,6 @@
 .editIcon:hover{
     cursor: pointer;
 }
+.editIcon{
+    color: red;
+}

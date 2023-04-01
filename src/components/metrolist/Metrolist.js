@@ -52,7 +52,7 @@ const Metrolist = () => {
                   <TableCell align="center" >{row.madein}</TableCell>
                   <TableCell align="center" >{row.capacity}</TableCell>
                   <TableCell align="center" >{row.line}</TableCell>
-                  <TableCell align="center" ><DeleteIcon /></TableCell>
+                  <TableCell align="center" ><DeleteIcon className="editIcon"/></TableCell>
                 </TableRow>
               ))}
             </TableBody>

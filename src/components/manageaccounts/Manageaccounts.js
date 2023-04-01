@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import { maxHeight } from "@mui/system";
 import TableViewIcon from "@mui/icons-material/TableView";
 import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from '@mui/icons-material/Delete';
 import Editaccount from "../editaccount/Editaccount";
 import { useState,useEffect } from "react";
 import { Createaccount } from "..";
@@ -45,7 +46,7 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
               <TableCell align="center">Last Name</TableCell>
               <TableCell align="center">Email</TableCell>
               <TableCell align="center">TimeTable</TableCell>
-              <TableCell align="center">Edit</TableCell>
+              <TableCell align="center">Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -64,7 +65,7 @@ const chauffeurCollectionRef = collection(db, "chauffeur");
                   <TableViewIcon className="TableViewIcon"/>
                 </TableCell>
                 <TableCell align="center" onClick={toggleEdit}>
-                  <EditIcon  className="editIcon"/>
+                  <DeleteIcon  className="editIcon"/>
                 </TableCell>
               </TableRow>
             ))}
