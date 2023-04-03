@@ -1,4 +1,14 @@
 .timetable{
     background-color: var(--color-back-main-hover);
     width: 100%;
+    height : 100%;
+    --fc-border-color: black;
+    --fc-daygrid-event-dot-width: 5px;
+    /* padding : 10px */
+
+}
+
+.timtable--calendar{
+    height :500;
+    width: 500;
 }
