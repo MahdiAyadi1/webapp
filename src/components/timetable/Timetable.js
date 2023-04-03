@@ -73,17 +73,24 @@ const  Timetable= ()=> {
         
     <div className="timetable">
         <FullCalendar
-        height={400}
+        height={350}
         center="Add"
-        headerToolbar="a"
+        headerToolbar={{
+          left: "prev,next today",
+          center: "title",
+          right: "timeGridWeek,timeGridDay",
+        }}
+        // slotMinTime="05:00"
+        // slotMaxTime="23:00"
+        // allDaySlot={false}
         className="timtable--calendar"
         plugins={[ dayGridPlugin , timeGridPlugin,interactionPlugin ]}
-        initialView="dayGridWeek"
+        initialView="timeGridWeek"
         events={events}
         eventClick={handleDateClick}
       />
       <Createevent setEvents={setEvents} events={events} />
-        <button className="signin--form--button"onClick={saveToDatabase}>Save</button>
+        <button className="signin--form--button"onClick={saveToDatabase} style={{margin : "10px"}}>Save</button>
     </div>
     )
 }

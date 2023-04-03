@@ -36,9 +36,12 @@ const Createevent = (props) => {
     }
   return (
     <div >
-        <form className='grid-container '>
-            <input onChange={handleChange} name='title' placeholder='title'/>
-            <select onChange={handleChange} name='daysOfWeek' placeholder='day'>
+        <form className='create-container'>
+          <div className='create-container-group'>
+            <div className='create--form--header'>Title :</div>
+            <input onChange={handleChange} className="create--form--field" name='title' placeholder='title'/>
+            <div className='create--form--header'>Day :</div>
+            <select onChange={handleChange} className="create--form--field" name='daysOfWeek' placeholder='day'>
               <option value="1">Monday</option>
               <option value="2">Tuesday</option>
               <option value="3">Wednesday</option>
@@ -47,15 +50,25 @@ const Createevent = (props) => {
               <option value="6">Saturday</option>
               <option value="0">Sunday</option>
             </select>
-            <input onChange={handleChange} name='date' placeholder='date'/>
-            <input onChange={handleChange} name='time' placeholder='time'/>
-            <input onChange={handleChange} name='metro' placeholder='metro'/>
-            <input onChange={handleChange} name='line' placeholder='line'/>
+          </div>
+          <div className='create-container-group'>
+
+            <div className='create--form--header'>Date :</div>
+            <input onChange={handleChange} className="create--form--field" name='start' placeholder='start'/>
+          <div className='create--form--header'>Time :</div>
+            <input onChange={handleChange} className="create--form--field" name='end' placeholder='end'/>
+          </div>
+          <div className='create-container-group'>
+            <div className='create--form--header'>Metro :</div>
+            <input onChange={handleChange}  className="create--form--field"name='metro' placeholder='metro'/>
+            <div className='create--form--header'>Line :</div>
+            <input onChange={handleChange}  className="create--form--field" name='line' placeholder='line'/>
             <div></div>
-            <button className="signin--form--button" onClick={handleClick}>
+          </div>
+        </form>
+            <button className="signin--form--button" style={{margin : "10px"}} onClick={handleClick}>
               Add
             </button>
-        </form>
     </div>
   )
 }
