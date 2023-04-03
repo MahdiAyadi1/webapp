@@ -11,3 +11,12 @@
 .manageaccounts--table{
     color : red ;
 }
+.TableViewIcon:hover{
+    cursor: pointer;
+}
+.editIcon:hover{
+    cursor: pointer;
+}
+.editIcon{
+    color: red;
+}

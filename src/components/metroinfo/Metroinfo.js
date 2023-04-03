@@ -11,6 +11,7 @@ import station4Img from '../leafletmap/station4.png'
 import station5Img from '../leafletmap/station5.png'
 import station6Img from '../leafletmap/station6.png'
 import { width } from "@mui/system";
+import './metroinfo.css'
 
 const Metroinfo = (props) => {
   const [value, setValue] = useState("1");
@@ -54,7 +55,7 @@ const Metroinfo = (props) => {
           </Tooltip>
         </TabPanel>
         <TabPanel value="2">
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="1"
@@ -64,7 +65,7 @@ const Metroinfo = (props) => {
             Line 1
             <img src={station1Img} style={{width: 20,marginLeft: 13}}/>
           </div>
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="2"
@@ -74,7 +75,7 @@ const Metroinfo = (props) => {
             Line 2
             <img src={station2Img} style={{width: 20,marginLeft: 13}}/>
           </div>
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="3"
@@ -84,7 +85,7 @@ const Metroinfo = (props) => {
             Line 3
             <img src={station3Img} style={{width: 20,marginLeft: 13}}/>
           </div>
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="4"
@@ -94,7 +95,7 @@ const Metroinfo = (props) => {
             Line 4
             <img src={station4Img} style={{width: 20,marginLeft: 13}}/>
           </div>
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="5"
@@ -104,7 +105,7 @@ const Metroinfo = (props) => {
             Line 5 
             <img src={station5Img} style={{width: 20,marginLeft: 13}}/>
           </div>
-          <div>
+          <div className="input_box">
             <input
               type="checkbox"
               value="6"
