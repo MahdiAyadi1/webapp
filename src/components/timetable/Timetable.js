@@ -17,7 +17,11 @@ import {
   getDoc
   } from "firebase/firestore";
   import { db } from "../../firebase-config";
-const  Timetable= ()=> {
+  const  Timetable= (props)=> {
+  const [events , setEvents] = useState({})
+
+  // Select date function made to delete items from calendar 
+
   const handleDateClick = (arg) => {
     const selectedEvent = {title : arg.event._def.title }
     console.log(selectedEvent)
@@ -30,25 +34,9 @@ const  Timetable= ()=> {
         }
     }
   };
-  // const handleDateClick = (arg) => {
-  //   console.log("test")
-  //   const clickedDate = arg.date.toISOString();
-  //   const clickedEvent = events.find((event) => event.start === clickedDate);
-  
-  //   if (clickedEvent) {
-  //     const confirmDelete = window.confirm("Are you sure you want to delete this event?");
-  //     if (confirmDelete) {
-  //       const updatedEvents = events.filter((event) => event.start !== clickedDate);
-  //       setEvents(updatedEvents);
-  //     }
-  //   } else {
-  //     // Handle case where there is no event for the clicked date
-  //   }
-  // };
-    const [events , setEvents] = useState({})
     const getFromDatabase = async()=>{
       try {
-        const docRef = doc(db, "timetable","chauffeur test");
+        const docRef = doc(db, "chauffeur",props.target);
         const docSnap = await getDoc(docRef)
         console.log(docSnap.data())
         setEvents( docSnap.data().json)
@@ -63,8 +51,8 @@ const  Timetable= ()=> {
     const saveToDatabase =async()=>{
       console.log("clicked")
       try {
-      const docRef = doc(db, "timetable","chauffeur test");
-    await setDoc(docRef, {json : events})
+      const docRef = doc(db, "chauffeur",props.target);
+    await updateDoc(docRef, {json : events})
       } catch (error) {
         alert(error.message);
       }
@@ -72,6 +60,7 @@ const  Timetable= ()=> {
     return (
         
     <div className="timetable">
+      <div>{props.target}</div>
         <FullCalendar
         height={350}
         center="Add"
@@ -80,9 +69,9 @@ const  Timetable= ()=> {
           center: "title",
           right: "timeGridWeek,timeGridDay",
         }}
-        // slotMinTime="05:00"
-        // slotMaxTime="23:00"
-        // allDaySlot={false}
+        slotMinTime="05:00"
+        slotMaxTime="23:00"
+        allDaySlot={false}
         className="timtable--calendar"
         plugins={[ dayGridPlugin , timeGridPlugin,interactionPlugin ]}
         initialView="timeGridWeek"

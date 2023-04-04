@@ -18,7 +18,7 @@ const Createevent = (props) => {
     //     setCreate(!create);
     //     console.log(create);
     //   };
-    const [FormData,setFormData] = useState({allDay : false})
+    const [FormData,setFormData] = useState({daysOfWeek : "1"})
   function handleChange(event){
       setFormData(old => {
           return {
@@ -30,7 +30,14 @@ const Createevent = (props) => {
     const handleClick = (e)=>{
       e.preventDefault()
       console.log(FormData)
-      props.setEvents((events)=>{return events.concat(FormData)})
+      props.setEvents((events)=>{
+        try{
+          return events.concat(FormData)
+        }
+        catch(e){return [FormData]}
+        }
+        )
+
       console.log(props.events)
       
     }
@@ -53,10 +60,10 @@ const Createevent = (props) => {
           </div>
           <div className='create-container-group'>
 
-            <div className='create--form--header'>Date :</div>
-            <input onChange={handleChange} className="create--form--field" name='start' placeholder='start'/>
-          <div className='create--form--header'>Time :</div>
-            <input onChange={handleChange} className="create--form--field" name='end' placeholder='end'/>
+            <div className='create--form--header'>Start :</div>
+            <input onChange={handleChange} className="create--form--field" name='startTime' placeholder='Enter Date'/>
+          <div className='create--form--header'>End :</div>
+            <input onChange={handleChange} className="create--form--field" name='endTime' placeholder='Enter Date'/>
           </div>
           <div className='create-container-group'>
             <div className='create--form--header'>Metro :</div>

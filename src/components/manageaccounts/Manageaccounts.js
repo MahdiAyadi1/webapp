@@ -69,7 +69,7 @@ const Manageaccounts = (props) => {
                 <TableCell align="center">{row.email}</TableCell>
                 <TableCell align="center">{row.password}</TableCell>
                 <TableCell align="center">
-                  <TableViewIcon className="TableViewIcon"/>
+                  <TableViewIcon className="TableViewIcon" onClick={()=>{props.setNav('timetable');props.setTarget(row.id)}} />
                 </TableCell>
                 <TableCell align="center"
                 //  onClick={toggleEdit}

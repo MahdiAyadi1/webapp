@@ -6,6 +6,7 @@ import {LeafletMap,Metroinfo,Manageaccounts,Sidebar,Timetable, Declarations , Me
 const Home = ()=> {
     const [nav,setNav]= useState('map')
     const [filtre,setFiltre]= useState([])
+    const [target,setTarget] = useState('empty')
     const [declarationList, setdeclarationList] = useState([]);
     var nbDeclarations=declarationList.length
     const declarationCollectionRef = collection(db, "declaration");
@@ -26,9 +27,9 @@ const Home = ()=> {
         <div className="home">
             <Sidebar nav={nav}  setNav={setNav} nbDeclarations={nbDeclarations}/>
             {nav=='map' && <LeafletMap filtre={filtre} />}
-            {nav=='map' && <Metroinfo setFiltre={setFiltre} filtre={filtre}/>}
-            {nav=='manageaccounts' &&<Manageaccounts />}
-            {nav=='timetable' && <Timetable />}
+            {nav=='map' && <Metroinfo setFiltre={setFiltre}  filtre={filtre}/>}
+            {nav=='manageaccounts' &&<Manageaccounts setTarget={setTarget} setNav={setNav} />}
+            {nav=='timetable' && <Timetable target={target} />}
             {nav=='declarations' && <Declarations declarationList={declarationList}/>}
             {nav=='metrolist' && <Metrolist/>}
         </div>

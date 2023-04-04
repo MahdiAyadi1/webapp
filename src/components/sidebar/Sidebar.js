@@ -25,11 +25,11 @@ const Sidebar = (props)=> {
             icon : <ManageAccountsIcon />,
             link : 'manageaccounts'
         },
-        {
-            title : 'Timetable',
-            icon : <EventNoteIcon />,
-            link : 'timetable'
-        },
+        // {
+        //     title : 'Timetable',
+        //     icon : <EventNoteIcon />,
+        //     link : 'timetable'
+        // },
         {
             title : 'Metro List',
             icon : <SubwayIcon />,
