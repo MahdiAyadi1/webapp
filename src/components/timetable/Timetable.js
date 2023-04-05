@@ -14,7 +14,7 @@ import {
   import { db } from "../../firebase-config";
   const  Timetable= (props)=> {
   const [events , setEvents] = useState({})
-
+  const [name,setName] = useState()
   // Select date function made to delete items from calendar 
 
   const handleDateClick = (arg) => {
@@ -35,7 +35,7 @@ import {
         const docSnap = await getDoc(docRef)
         console.log(docSnap.data())
         setEvents( docSnap.data().json)
-        
+        setName(docSnap.data().name)
       } catch (error) {
         
       }
@@ -55,7 +55,7 @@ import {
     return (
         
     <div className="timetable">
-      <div>{props.target}</div>
+      <div className="page--title--sub">{name}'s Timetable</div>
         <FullCalendar
         height={350}
         center="Add"

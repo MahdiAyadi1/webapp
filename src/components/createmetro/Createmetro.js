@@ -39,7 +39,7 @@ const Createmetro = (props) => {
       console.log(FormCreate);
       e.preventDefault();
       setbuttonstatus(false);
-      const docRef = doc(db, "metro", FormCreate.id);
+      const docRef = doc(db, "liste_metro", FormCreate.id);
       await setDoc(docRef, FormCreate);
       props.setbool((old)=>{return !old})
     } catch (error) {

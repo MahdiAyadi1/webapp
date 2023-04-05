@@ -28,7 +28,7 @@ const Createevent = (props) => {
     }
   return (
     <div >
-        <form className='create-container'>
+        <form className='create-container '>
           <div className='create-container-group'>
             <div className='create--form--header'>Title :</div>
             <input onChange={handleChange} className="create--form--field" name='title' placeholder='title'/>

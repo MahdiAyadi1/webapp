@@ -14,7 +14,7 @@ import { useState , useEffect} from 'react'
 import { Createmetro } from "..";
 const Metrolist = () => {
   const [metroList, setmetroList] = useState([]);
-  const metroCollectionRef = collection(db, "metro");
+  const metroCollectionRef = collection(db, "liste_metro");
   const [bool, setbool] = useState(true);
   
   useEffect(() => {
@@ -25,7 +25,7 @@ const Metrolist = () => {
     getmetros();
   }, [bool]);
   const deleteMetro = async (id) => {
-    const postDoc = doc(db, "metro", id);
+    const postDoc = doc(db, "liste_metro", id);
     await deleteDoc(postDoc);
     setbool((old)=>{return !old})
   };
