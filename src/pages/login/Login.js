@@ -4,7 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useState} from "react"; 
 import { auth } from "../../firebase-config";
 import {signInWithEmailAndPassword} from "firebase/auth";
+import TextField from '@mui/material/TextField';
+
 const Login = ()=> {
+    const inputStyle = {
+        backgroundColor: 'white', // set background color to white
+        '& .MuiInputBase-input': {
+          color: 'black', // set text color to black
+        },
+        borderRadius :"4px",
+        width : "300px" 
+      }
     const navigate = useNavigate();
     const login = async (e) => {
         e.preventDefault()
@@ -43,17 +53,10 @@ const Login = ()=> {
             <div className="signin--form--subtext">
                 Log in to access real-time information on metro movement 
             </div>
-            <input onChange={handleChange} name='email' value={FormDataSignIn.email}  className="signin--form--field" placeholder="Username"/>
-            <input  onChange={handleChange} name="mdp" value={FormDataSignIn.mdp} className="signin--form--field" placeholder="Password" type="password"/>
 
-            
-            <div className="signin--form--remember">
-            <input type="checkbox"  /> 
+            <TextField id="filled-basic" label="Username" variant="filled" style={inputStyle}  onChange={handleChange} name='email' value={FormDataSignIn.email} />
+            <TextField id="filled-basic" label="Password" variant="filled" style={inputStyle}   onChange={handleChange} name="mdp" value={FormDataSignIn.mdp} type="password"/>
 
-            <div>
-            Remember me
-            </div>
-            </div>
             <button className="signin--form--button">Login</button>
         </form>
     </div>
