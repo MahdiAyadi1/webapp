@@ -1,23 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
 import './createevents.css'
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  setDoc
-  } from "firebase/firestore";
-  import { db } from "../../firebase-config";
 
 const Createevent = (props) => {
-    // const [create, setCreate] = useState(false);
-    // const handleClick = () => {
-    //     setCreate(!create);
-    //     console.log(create);
-    //   };
     const [FormData,setFormData] = useState({daysOfWeek : "1"})
   function handleChange(event){
       setFormData(old => {

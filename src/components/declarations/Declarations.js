@@ -1,7 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { db } from "../../firebase-config";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import "./declaration.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";

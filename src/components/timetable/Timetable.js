@@ -7,13 +7,8 @@ import interactionPlugin from '@fullcalendar/interaction'
 import {Createevent} from ".."
 import {useState} from 'react'
 import {
-  collection,
-  getDocs,
-  addDoc,
   updateDoc,
-  deleteDoc,
   doc,
-  setDoc,
   getDoc
   } from "firebase/firestore";
   import { db } from "../../firebase-config";

@@ -1,14 +1,6 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  setDoc,
-} from "firebase/firestore";
+import {doc,setDoc,} from "firebase/firestore";
 import { db } from "../../firebase-config";
 
 const Createmetro = (props) => {

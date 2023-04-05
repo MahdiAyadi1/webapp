@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { maxHeight } from "@mui/system";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { db } from "../../firebase-config";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
