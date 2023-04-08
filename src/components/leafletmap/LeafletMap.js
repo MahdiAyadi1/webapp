@@ -4,7 +4,7 @@ import './leafletmap.css' ;
 import { MapContainer, TileLayer,Marker,Popup,Tooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
-import { lineone } from "./lineone";
+import { stations } from "./stations";
 
 const LeafletMap = (props)=> {
 console.log(props.filtre)
@@ -34,7 +34,7 @@ console.log(props.filtre)
           </Popup>
           <Tooltip>Metro 401</Tooltip>
         </Marker>
-        {lineone.map((val) =>{ 
+        {stations.map((val) =>{ 
             return (
               props.filtre.includes(val.ligne.at(-1)) &&
                <Marker key={val.id} position={val.coordinates} icon={L.icon({

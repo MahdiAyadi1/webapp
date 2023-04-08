@@ -55,6 +55,7 @@ const Declarations = (props) => {
           );
         })}
       </div>
+      
     </div>
   );
 };

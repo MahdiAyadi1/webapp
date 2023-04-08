@@ -1,11 +1,6 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
   doc,
   setDoc,
 } from "firebase/firestore";
@@ -47,7 +42,7 @@ const Createmetro = (props) => {
       console.log(FormCreate);
       e.preventDefault();
       setbuttonstatus(false);
-      const docRef = doc(db, "metro", FormCreate.id);
+      const docRef = doc(db, "liste_metro", FormCreate.id);
       await setDoc(docRef, FormCreate);
       props.setbool((old)=>{return !old})
     } catch (error) {
@@ -97,13 +92,9 @@ const Createmetro = (props) => {
               className="signin--form--field"
               placeholder="Capacity"
             />
-            <input
-              onChange={handleChange}
-              name="line"
-              className="signin--form--field"
-              placeholder="Line"
-            />
-            <button className="signin--form--button" disabled={!buttonstatus}>
+            <button className="signin--form--button"
+            //  disabled={!buttonstatus}
+             >
               Create
             </button>
             <button className="signin--form--button" onClick={handleClick}>

@@ -1,5 +1,5 @@
 import React from "react"
-export const lineone = [
+export const stations = [
         {
           "id":  1, "ligne": "Ligne 1",
           "num": 1,
@@ -105,6 +105,28 @@ export const lineone = [
           "delegation": "El Kabaria",
           "correspondences": []
         } ,  
+        {
+          "ligne": "Ligne 1",
+          "num": 10,
+          "name": "Abou El Kacem Echebbi",
+          "coordinates": [
+            36.7525,
+            10.214722222222222
+            ],
+          "delegation": "Ben Arous",
+          "correspondences": []
+        },
+        {
+          "ligne": "Ligne 1",
+          "num": 11,
+          "name": "Ben Arous",
+          "coordinates": [
+            36.7555556,
+            10.2202778
+            ],
+          "delegation": "Ben Arous",
+          "correspondences": []
+        },
         //=========================================ligne 2=============================================
         {
           "id":  10, "ligne": "Ligne 2",
@@ -1050,6 +1072,5 @@ export const lineone = [
               ],
               "delegation": "El Mourouj",
               "correspondences": [],
-            }
-             
+            }          
 ]
