@@ -1,23 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
 import './createevents.css'
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  setDoc
-  } from "firebase/firestore";
-  import { db } from "../../firebase-config";
 
 const Createevent = (props) => {
-    // const [create, setCreate] = useState(false);
-    // const handleClick = () => {
-    //     setCreate(!create);
-    //     console.log(create);
-    //   };
     const [FormData,setFormData] = useState({daysOfWeek : "1"})
   function handleChange(event){
       setFormData(old => {
@@ -43,7 +28,7 @@ const Createevent = (props) => {
     }
   return (
     <div >
-        <form className='create-container'>
+        <form className='create-container '>
           <div className='create-container-group'>
             <div className='create--form--header'>Title :</div>
             <input onChange={handleChange} className="create--form--field" name='title' placeholder='title'/>

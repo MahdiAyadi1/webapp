@@ -1,6 +1,5 @@
 import React  from 'react'
 import './editaccount.css'
-import EditIcon from '@mui/icons-material/Edit';
 import { useState,useEffect,useRef } from 'react';
 
 const Editaccount = (props) => {

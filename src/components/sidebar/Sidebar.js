@@ -1,12 +1,12 @@
 import React from "react";
 import './sidebar.css' ;
-import {SidebarElements} from './SidebarElements.js'
+// import {SidebarElements} from './SidebarElements.js'
 import {signOut} from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useNavigate } from "react-router-dom";
 import MapIcon from '@mui/icons-material/Map';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import EventNoteIcon from '@mui/icons-material/EventNote';
+// import EventNoteIcon from '@mui/icons-material/EventNote';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SubwayIcon from '@mui/icons-material/Subway';
 import Badge from '@mui/material/Badge';

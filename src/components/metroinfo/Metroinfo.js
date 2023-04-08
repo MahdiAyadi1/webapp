@@ -10,7 +10,6 @@ import station3Img from '../leafletmap/station3.png'
 import station4Img from '../leafletmap/station4.png'
 import station5Img from '../leafletmap/station5.png'
 import station6Img from '../leafletmap/station6.png'
-import { width } from "@mui/system";
 import './metroinfo.css'
 
 const Metroinfo = (props) => {

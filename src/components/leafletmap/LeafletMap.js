@@ -4,16 +4,32 @@ import './leafletmap.css' ;
 import { MapContainer, TileLayer,Marker,Popup,Tooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
-import { stations } from "./stations";
+import { lineone } from "./lineone";
+import {simulationData} from "./simulationData"
 
 const LeafletMap = (props)=> {
-console.log(props.filtre)
-  var myIcon = L.icon({
-    iconUrl: require("./metro.png"),
-    iconSize: [36, 36],
-    iconAnchor: [36, 36],
-    popupAnchor: [-3, -76],
-});
+    const [metroPosition,setMetroPosition]=useState({"lat":36.80412074650377,"lng":10.121765064880966});
+	useEffect(()=>{
+		var i =0 ;
+
+		const intervalId = setInterval(()=>
+		{   
+			var element = simulationData[i]
+			i++
+			setMetroPosition([element.lat,element.lng])
+			console.log(element.lat,element.lng)
+			if (i ==simulationData.length)
+            {   console.log("clearingInterval")
+			clearInterval(intervalId)}
+			
+		},2000)
+	},[])
+	var myIcon = L.icon({
+		iconUrl: require("./metro.png"),
+		iconSize: [36, 36],
+		iconAnchor: [36, 36],
+		popupAnchor: [-3, -76],
+	});
   return (
     <div className="map">
       <MapContainer 
@@ -28,7 +44,7 @@ console.log(props.filtre)
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[36.80962269649294, 10.157530321904984]} icon={myIcon}>
+        <Marker position={metroPosition} icon={myIcon}>
           <Popup>
             Metro 401
           </Popup>

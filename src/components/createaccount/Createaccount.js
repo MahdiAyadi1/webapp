@@ -11,7 +11,6 @@ const Createaccount = (props) => {
   const [FormCreate, setFormCreate] = useState({});
   const [create, setCreate] = useState(false);
   const [buttonstatus, setbuttonstatus] = useState(true);
-  const [bool, setbool] = useState(true);
 
   const handleClick = () => {
     setCreate(!create);

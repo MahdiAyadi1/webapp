@@ -1,8 +1,11 @@
 import React, { useState,useEffect } from "react";
 import './home.css' ;
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { getDocs, collection} from "firebase/firestore";
 import { db } from "../../firebase-config";
 import {LeafletMap,Metroinfo,Manageaccounts,Sidebar,Timetable, Declarations , Metrolist} from '../../components'
+import { auth } from "../../firebase-config";
+import {onAuthStateChanged} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 const Home = ()=> {
     const [nav,setNav]= useState('map')
     const [filtre,setFiltre]= useState([])
@@ -10,7 +13,12 @@ const Home = ()=> {
     const [declarationList, setdeclarationList] = useState([]);
     var nbDeclarations=declarationList.length
     const declarationCollectionRef = collection(db, "declaration");
-
+    const navigate = useNavigate();
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/login')
+      }
+    });
     useEffect(() => {
         const getdeclaraions = async () => {
           const data = await getDocs(declarationCollectionRef);
