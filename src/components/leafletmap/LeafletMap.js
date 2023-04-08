@@ -4,8 +4,8 @@ import './leafletmap.css' ;
 import { MapContainer, TileLayer,Marker,Popup,Tooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet' ;
-import { lineone } from "./lineone";
 import {simulationData} from "./simulationData"
+import {stations} from "./stations" 
 
 const LeafletMap = (props)=> {
     const [metroPosition,setMetroPosition]=useState({"lat":36.80412074650377,"lng":10.121765064880966});
