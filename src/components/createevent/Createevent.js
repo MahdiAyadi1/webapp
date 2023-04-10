@@ -4,6 +4,7 @@ import './createevents.css'
 
 const Createevent = (props) => {
     const [FormData,setFormData] = useState({daysOfWeek : "1"})
+    const [formValid, setFormValid] = useState(false);
   function handleChange(event){
       setFormData(old => {
           return {
@@ -13,6 +14,8 @@ const Createevent = (props) => {
       })
   }
     const handleClick = (e)=>{
+      if (FormData.startTime && FormData.endTime && FormData.metro && FormData.line) {
+        setFormValid(true);
       e.preventDefault()
       console.log(FormData)
       props.setEvents((events)=>{
@@ -20,8 +23,11 @@ const Createevent = (props) => {
           return events.concat(FormData)
         }
         catch(e){return [FormData]}
-        }
-        )
+        })
+      }else{
+        alert('Please fill in all required fields');
+      }
+        
 
       console.log(props.events)
       
@@ -46,15 +52,15 @@ const Createevent = (props) => {
           <div className='create-container-group'>
 
             <div className='create--form--header'>Start Time :</div>
-            <input onChange={handleChange} className="create--form--field" name='startTime' placeholder='exemple: 15:00'/>
+            <input onChange={handleChange} className="create--form--field" name='startTime' placeholder='exemple: 15:00' required/>
           <div className='create--form--header'>End Time :</div>
-            <input onChange={handleChange} className="create--form--field" name='endTime' placeholder='exemple: 17:30'/>
+            <input onChange={handleChange} className="create--form--field" name='endTime' placeholder='exemple: 17:30' required/>
           </div>
           <div className='create-container-group'>
             <div className='create--form--header'>Metro ID :</div>
-            <input onChange={handleChange}  className="create--form--field"name='metro' placeholder='metro'/>
+            <input onChange={handleChange}  className="create--form--field"name='metro' placeholder='metro' required/>
             <div className='create--form--header'>Line :</div>
-            <input onChange={handleChange}  className="create--form--field" name='line' placeholder='line'/>
+            <input onChange={handleChange}  className="create--form--field" name='line' placeholder='line' required/>
             <div></div>
           </div>
         </form>
