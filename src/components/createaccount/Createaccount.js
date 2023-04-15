@@ -61,32 +61,6 @@ const Createaccount = (props) => {
       alert(error.message);
     }
   };
-  //===================================================================================
-//   const register = async (e) => {
-//     e.preventDefault()
-//     setbuttonstatus(false)
-// try {
-
-//     const user = await createUserWithEmailAndPassword(
-//     auth,
-//     formData.email,
-//     formData.mdp
-//     )
-//     const docRef = doc(db, "users", auth.currentUser.uid );
-//     setFormData((old)=>{return {useruid : auth.currentUser.uid}})
-//     setDoc(docRef, formData, ).then(() => {
-//         navigate('/')
-//     })
-//     .catch(error => {
-//         console.log(error);
-// })  
-    
-// } catch (error) {
-//     if(error.message == "Firebase: Error (auth/email-already-in-use).")
-//     alert("Email déjà utilisé !");
-// }
-  //===================================================================================
-  
 
   function handleChange(event) {
     setFormCreate((old) => {
