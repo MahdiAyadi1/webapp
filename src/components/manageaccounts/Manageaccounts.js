@@ -74,7 +74,7 @@ const Manageaccounts = (props) => {
                 //  onClick={toggleEdit}
                  >
                   <PersonRemoveIcon  className="editIcon" onClick={() => {
-                  deleteChauffeur(row.cin);
+                  deleteChauffeur(row.email);
                   }}/>
                 </TableCell>
               </TableRow>

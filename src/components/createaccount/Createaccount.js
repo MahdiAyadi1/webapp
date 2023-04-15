@@ -5,6 +5,10 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
+import { auth } from "../../firebase-config";
+import {
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 
 const Createaccount = (props) => {
@@ -45,13 +49,44 @@ const Createaccount = (props) => {
       console.log(FormCreate);
       e.preventDefault();
       setbuttonstatus(false);
-      const docRef = doc(db, "chauffeur", FormCreate.cin);
+      const user = await createUserWithEmailAndPassword(
+            auth,
+            FormCreate.email,
+            FormCreate.password
+            )
+      const docRef = doc(db, "chauffeur", FormCreate.email);
       await setDoc(docRef, FormCreate);
       props.setbool((old)=>{return !old})
     } catch (error) {
       alert(error.message);
     }
   };
+  //===================================================================================
+//   const register = async (e) => {
+//     e.preventDefault()
+//     setbuttonstatus(false)
+// try {
+
+//     const user = await createUserWithEmailAndPassword(
+//     auth,
+//     formData.email,
+//     formData.mdp
+//     )
+//     const docRef = doc(db, "users", auth.currentUser.uid );
+//     setFormData((old)=>{return {useruid : auth.currentUser.uid}})
+//     setDoc(docRef, formData, ).then(() => {
+//         navigate('/')
+//     })
+//     .catch(error => {
+//         console.log(error);
+// })  
+    
+// } catch (error) {
+//     if(error.message == "Firebase: Error (auth/email-already-in-use).")
+//     alert("Email déjà utilisé !");
+// }
+  //===================================================================================
+  
 
   function handleChange(event) {
     setFormCreate((old) => {
