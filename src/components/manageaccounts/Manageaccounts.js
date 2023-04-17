@@ -41,7 +41,7 @@ const Manageaccounts = (props) => {
   };
   return (
     <div className="manageaccounts">
-      <div className="page--title"> Chauffeurs List</div>
+      <div className="page--title"> Drivers' List</div>
       {edit && <Editaccount toggleEdit={toggleEdit} edit setEdit={setEdit} />}
       <TableContainer component={Paper} sx={{ color: "blue" }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

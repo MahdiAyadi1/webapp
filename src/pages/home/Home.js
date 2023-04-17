@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import './home.css' ;
-import { getDocs, collection} from "firebase/firestore";
+import { getDocs, collection, deleteDoc, doc} from "firebase/firestore";
 import { db } from "../../firebase-config";
 import {LeafletMap,Metroinfo,Manageaccounts,Sidebar,Timetable, Declarations , Metrolist} from '../../components'
 import { auth } from "../../firebase-config";
@@ -30,6 +30,10 @@ const Home = ()=> {
       }, []);
       nbDeclarations=declarationList.length;
       console.log(nbDeclarations)
+    const handleDelete = async (id) => {
+        const postDoc = doc(db, "declaration", id);
+        await deleteDoc(postDoc);
+      };
 
     return (
         <div className="home">
@@ -38,7 +42,7 @@ const Home = ()=> {
             {nav=='map' && <Metroinfo setFiltre={setFiltre}  filtre={filtre}/>}
             {nav=='manageaccounts' &&<Manageaccounts setTarget={setTarget} setNav={setNav} />}
             {nav=='timetable' && <Timetable target={target} />}
-            {nav=='declarations' && <Declarations declarationList={declarationList}/>}
+            {nav=='declarations' && <Declarations declarationList={declarationList} handleDelete={handleDelete}/>}
             {nav=='metrolist' && <Metrolist/>}
         </div>
     )

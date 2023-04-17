@@ -5,6 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteIcon from '@mui/icons-material/Delete';
 const Declarations = (props) => {
 
   const [expanded, setExpanded] = React.useState(false);
@@ -12,6 +13,7 @@ const Declarations = (props) => {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+  console.log(props.declarationList)
   
 
   return (
@@ -27,22 +29,26 @@ const Declarations = (props) => {
                 onChange={handleChange(item.id)}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  // expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                  <Typography sx={{ width: "25%", flexShrink: 0 }}>
                     {item.title}
                   </Typography>
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                  <Typography sx={{ width: "25%", flexShrink: 0 }}>
                     {item.chauffeur}
                   </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
+                  <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>
+                    {item.time}
+                  </Typography >
+                  <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>
                     {item.date}
-                  </Typography>
+                  </Typography >
+                  <DeleteIcon sx={{ width: "10%", flexShrink: 0 }} onClick={()=>{props.handleDelete(item.id)}} />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>{item.description}</Typography>
+                  <Typography >{item.description}</Typography>
                 </AccordionDetails>
               </Accordion>
               {/* <div className='declaration--list--item'>
