@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Box from "@mui/material/Box";
 import { Tab } from "@mui/material";
@@ -11,7 +11,8 @@ import station4Img from '../leafletmap/station4.png'
 import station5Img from '../leafletmap/station5.png'
 import station6Img from '../leafletmap/station6.png'
 import './metroinfo.css'
-
+import { getDocs, collection, deleteDoc, doc} from "firebase/firestore";
+import { db } from "../../firebase-config";
 const Metroinfo = (props) => {
   const [value, setValue] = useState("1");
   // const [props.filtre, props.setFiltre] = useState([]);
@@ -29,7 +30,18 @@ const Metroinfo = (props) => {
     }
   };
   props.setFiltre(props.filtre)
-
+  const [metropositions,setmetropositions] = useState([])
+  const metroCollectionRef = collection(db,"metro_mouvement") 
+  useEffect(() => {
+    const getmetropositions = async () => {
+      const data = await getDocs(metroCollectionRef);
+      setmetropositions(
+        data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+      console.log(metropositions)
+    };
+    getmetropositions();
+  }, []);
   return (
     <div className="metroinfo">
       <TabContext value={value}>
@@ -40,18 +52,16 @@ const Metroinfo = (props) => {
           </TabList>
         </Box>
         <TabPanel value="1" className="metroinfo--items">
-          <Tooltip title="Show Position">
+          {metropositions.map((val) => {  return (
+            // <Tooltip title="Show Position" onClick={()=>{props.setFocus(val.location)}}>
+              
             <div>
               {" "}
-              <RoomIcon /> Metro 401
+              <RoomIcon /> Metro {val.id_metro}
             </div>
-          </Tooltip>
-          <Tooltip title="Show Position">
-            <div>
-              {" "}
-              <RoomIcon /> Metro 402
-            </div>
-          </Tooltip>
+            // </Tooltip>
+            )
+          }) }
         </TabPanel>
         <TabPanel value="2">
           <div className="input_box">

@@ -7,6 +7,7 @@ import { auth } from "../../firebase-config";
 import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 const Home = ()=> {
+    const [focus , setFocus] = useState([36.80962269649294, 10.157530321904984])
     const [nav,setNav]= useState('map')
     const [filtre,setFiltre]= useState([])
     const [target,setTarget] = useState('empty')
@@ -29,21 +30,20 @@ const Home = ()=> {
         getdeclaraions();
       }, []);
       nbDeclarations=declarationList.length;
-      console.log(nbDeclarations)
     const handleDelete = async (id) => {
         const postDoc = doc(db, "declaration", id);
         await deleteDoc(postDoc);
       };
-
+      console.log(focus)
     return (
         <div className="home">
             <Sidebar nav={nav}  setNav={setNav} nbDeclarations={nbDeclarations}/>
-            {nav=='map' && <LeafletMap filtre={filtre} />}
-            {nav=='map' && <Metroinfo setFiltre={setFiltre}  filtre={filtre}/>}
-            {nav=='manageaccounts' &&<Manageaccounts setTarget={setTarget} setNav={setNav} />}
-            {nav=='timetable' && <Timetable target={target} />}
-            {nav=='declarations' && <Declarations declarationList={declarationList} handleDelete={handleDelete}/>}
-            {nav=='metrolist' && <Metrolist/>}
+            {nav==='map' && <LeafletMap filtre={filtre} focus={focus} />}
+            {nav==='map' && <Metroinfo setFiltre={setFiltre} setFocus={setFocus} filtre={filtre}/>}
+            {nav==='manageaccounts' &&<Manageaccounts setTarget={setTarget} setNav={setNav} />}
+            {nav==='timetable' && <Timetable target={target} />}
+            {nav==='declarations' && <Declarations declarationList={declarationList} handleDelete={handleDelete}/>}
+            {nav==='metrolist' && <Metrolist/>}
         </div>
     )
 }
