@@ -19,6 +19,7 @@ const Home = ()=> {
         navigate('/login')
       }
     });
+    const [bool, setbool] = useState(true);
     useEffect(() => {
         const getdeclaraions = async () => {
           const data = await getDocs(declarationCollectionRef);
@@ -27,12 +28,13 @@ const Home = ()=> {
           );
         };
         getdeclaraions();
-      }, []);
+      }, [bool]);
       nbDeclarations=declarationList.length;
       console.log(nbDeclarations)
     const handleDelete = async (id) => {
         const postDoc = doc(db, "declaration", id);
         await deleteDoc(postDoc);
+        setbool((old)=>{return !old})
       };
 
     return (
@@ -42,7 +44,7 @@ const Home = ()=> {
             {nav=='map' && <Metroinfo setFiltre={setFiltre}  filtre={filtre}/>}
             {nav=='manageaccounts' &&<Manageaccounts setTarget={setTarget} setNav={setNav} />}
             {nav=='timetable' && <Timetable target={target} />}
-            {nav=='declarations' && <Declarations declarationList={declarationList} handleDelete={handleDelete}/>}
+            {nav=='declarations' && <Declarations declarationList={declarationList} handleDelete={handleDelete} />}
             {nav=='metrolist' && <Metrolist/>}
         </div>
     )

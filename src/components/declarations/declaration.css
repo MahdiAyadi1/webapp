@@ -1,7 +1,20 @@
 .declaration{
     background-color: var(--color-back-main-hover);
     width: 100%;
+    
 }
 .declaration--list--item{
     color: blue;
+}
+.heigh{
+    height:2px;
+}
+.Accordion--Container{
+    width: 95%;
+}
+.declaration--list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

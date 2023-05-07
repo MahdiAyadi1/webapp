@@ -13,17 +13,22 @@ const Declarations = (props) => {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  console.log(props.declarationList)
   
-
+  props.declarationList.sort(function(a, b) {
+    return new Date(b.date) - new Date(a.date);
+  }).sort(function(a, b) {
+    return new Date(b.time) - new Date(a.time);
+  });
+  console.log(props.declarationList);
   return (
     
     <div className="declaration">
       <div className="page--title centerElements">Declarations of Delays</div>
       <div className="declaration--list">
-        {props.declarationList.map((item) => {
+        {
+        props.declarationList.map((item) => {
           return (
-            <div key={item.id}>
+            <div key={item.id} className="Accordion--Container">
               <Accordion
                 expanded={expanded === item.id}
                 onChange={handleChange(item.id)}
@@ -40,17 +45,18 @@ const Declarations = (props) => {
                     {item.chauffeur}
                   </Typography>
                   <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>
-                    {item.time}
-                  </Typography >
-                  <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>
                     {item.date}
                   </Typography >
-                  <DeleteIcon sx={{ width: "10%", flexShrink: 0 }} onClick={()=>{props.handleDelete(item.id)}} />
+                  <Typography sx={{ width: "20%", flexShrink: 0, color: "text.secondary" }}>
+                    {item.time}
+                  </Typography >
+                  <DeleteIcon className="editIcon" sx={{ width: "10%", flexShrink: 0 }} onClick={()=>{props.handleDelete(item.id)}} />
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography >{item.description}</Typography>
                 </AccordionDetails>
               </Accordion>
+              <div className="heigh"></div>
               {/* <div className='declaration--list--item'>
              {item.text}
             </div> */}
