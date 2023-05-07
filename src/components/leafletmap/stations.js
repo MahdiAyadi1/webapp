@@ -22,7 +22,8 @@ export const stations = [
           "num": 2,
           "name": "Bab Alioua",
           "coordinates": [
-             
+            36.7858333,
+            10.1797222
           ],
           "delegation": "Sidi el Béchir",
           "correspondences": ["Ligne 6"]

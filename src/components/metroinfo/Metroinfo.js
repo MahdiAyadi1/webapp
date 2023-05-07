@@ -29,7 +29,8 @@ const Metroinfo = (props) => {
       props.setFiltre(props.filtre.filter((line) => line !== selectedLine));
     }
   };
-  props.setFiltre(props.filtre)
+  // props.setFiltre(props.filtre)
+  console.log(props.filtre)
   const [metropositions,setmetropositions] = useState([])
   const metroCollectionRef = collection(db,"metro_mouvement") 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Metroinfo = (props) => {
       setmetropositions(
         data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
-      console.log(metropositions)
+      // console.log(metropositions)
     };
     getmetropositions();
   }, []);

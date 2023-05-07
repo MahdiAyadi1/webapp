@@ -40,12 +40,12 @@ const LeafletMap = (props)=> {
       setmetropositions(
         data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
-      console.log(metropositions)
+      // console.log(metropositions)
     };
     getmetropositions();
   }, []);
   useEffect(()=>{
-    console.log("test")
+    // console.log("test")
   },[props.focus])
   const mapRef = useRef(null);
   function handleFlyTo() {

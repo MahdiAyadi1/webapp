@@ -36,7 +36,7 @@ const Home = ()=> {
         await deleteDoc(postDoc);
         setbool((old)=>{return !old})
       };
-      console.log(focus)
+      // console.log(focus)
     return (
         <div className="home">
             <Sidebar nav={nav}  setNav={setNav} nbDeclarations={nbDeclarations}/>
