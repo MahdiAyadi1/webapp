@@ -45,3 +45,8 @@ ul{
     text-align: center;
     height: 60px;
 }
+.sidebar--logo{
+    margin: auto;
+  width: 60%;
+  padding: 10px;
+}

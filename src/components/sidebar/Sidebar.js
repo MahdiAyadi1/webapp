@@ -59,7 +59,7 @@ const Sidebar = (props)=> {
     return (
     <div className="sidebar">
         <div className="sidebar--logo">
-            App Logo
+            <img src="/train.png" className="sidebar--logo centerElements"/>
         </div>
         <ul className="sidebar--elements">
         {SidebarElements.map((val,key)=>{
