@@ -52,9 +52,9 @@ const Createevent = (props) => {
           <div className='create-container-group'>
 
             <div className='create--form--header'>Start Time :</div>
-            <input onChange={handleChange} className="create--form--field" name='startTime' placeholder='exemple: 15:00' required/>
+            <input onChange={handleChange} className="create--form--field" name='startTime' placeholder='exemple: 09:00' required/>
           <div className='create--form--header'>End Time :</div>
-            <input onChange={handleChange} className="create--form--field" name='endTime' placeholder='exemple: 17:30' required/>
+            <input onChange={handleChange} className="create--form--field" name='endTime' placeholder='exemple: 13:30' required/>
           </div>
           <div className='create-container-group'>
             <div className='create--form--header'>Metro ID :</div>

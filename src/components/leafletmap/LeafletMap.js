@@ -69,9 +69,9 @@ const LeafletMap = (props)=> {
         />
         <Marker position={metroPosition} icon={myIcon}>
           <Popup>
-            Metro 401
+            Metro M42
           </Popup>
-          <Tooltip>Metro 401</Tooltip>
+          <Tooltip>Metro M42 <br/> Direction: terminus</Tooltip>
         </Marker>
         {stations.map((val) =>{ 
             return (
@@ -102,7 +102,7 @@ const LeafletMap = (props)=> {
                 <Popup>
                   Metro {val.id_metro} <br/>
                 </Popup>
-                <Tooltip>Metro {val.id_metro} </Tooltip>
+                <Tooltip>Metro {val.id_metro} <br/> Direction: {val.direction} </Tooltip>
                 </Marker>
               )
         })
